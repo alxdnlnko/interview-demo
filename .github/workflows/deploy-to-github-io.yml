@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting on merge
+name: Deploy to Github pages on merge
 'on':
   push:
     branches:
@@ -18,3 +18,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
+        with:
+          folder: build
