@@ -1,0 +1,41 @@
+@import 'open-color';
+
+.wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  border-radius: .5rem;
+  background: $oc-gray-2;
+
+  animation: pulse .5s ease-in-out infinite alternate;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  &>* {
+    height: 1.2rem;
+    border-radius: .5rem;
+    background: $oc-gray-2;
+
+    animation: pulse .5s ease-in-out infinite alternate;
+  }
+  &>*:first-child {
+    width: 10rem;
+  }
+  &>*:last-child {
+    width: 14rem;
+  }
+}
+
+@keyframes pulse {
+  from {
+    opacity: .5;
+  }
+}

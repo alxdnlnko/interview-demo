@@ -12,7 +12,7 @@
   line-height: 1.5;
   color: $oc-gray-6;
 
-  animation: show .32s ease-in-out backwards;
+  animation: show .12s ease-in-out backwards;
 }
 
 .link {
@@ -21,23 +21,8 @@
   gap: .5rem;
 }
 
-.loader {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-
-  color: $oc-gray-6;
-
-  animation: show .12s ease-in-out backwards;
-}
-
-.icon {
-  color: $oc-indigo-2;
-}
-
 @keyframes show {
   from {
     opacity: 0;
-    transform: translateY(-.3rem);
   }
 }

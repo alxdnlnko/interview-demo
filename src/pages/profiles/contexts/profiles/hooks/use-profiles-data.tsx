@@ -1,12 +1,9 @@
-import { ReactNode } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
-import type { TProfile } from '/types'
-import { createContext } from '/lib/context'
-
-const [ useProfiles, Provider ] = createContext<TProfile[]>()
+import { TProfile } from '/types'
 
 
-const PROFILES = [
+const PROFILES: TProfile[] = [
   {
     id: 'id-1',
     name: 'Juliya V.',
@@ -27,15 +24,15 @@ const PROFILES = [
   }
 ]
 
-export const ProfilesProvider = (props: {
-  children: ReactNode
-}) => {
-  const { children } = props
-  return (
-    <Provider value={PROFILES}>
-      {children}
-    </Provider>
-  )
+const fetchProfiles = async (): Promise<TProfile[]> => {
+  await new Promise(r => setTimeout(r, 1500))
+  return PROFILES
 }
 
-export { useProfiles }
+export const useProfilesData = () => {
+  const { isLoading, data: profiles } = useQuery(['profiles'], fetchProfiles)
+  return {
+    isLoading,
+    profiles,
+  }
+}

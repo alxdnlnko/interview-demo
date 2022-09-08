@@ -6,6 +6,8 @@ import { Page } from '/components/page'
 import { Card } from '/components/card'
 import { ProfileInfo } from '/components/profile-info'
 
+import { BioPlaceholder } from './components/bio-placeholder'
+import { ProfilePlaceholder } from './components/profile-placeholder'
 import { useProfile } from './hooks/use-profile'
 import { useBio } from './hooks/use-bio'
 
@@ -16,21 +18,22 @@ export const ViewProfile = (props: {
   id: TProfile['id']
 }) => {
   const { id } = props
-  const profile = useProfile(id)
+  const { isLoading, profile } = useProfile(id)
   const { isLoading: isLoadingBio, bio } = useBio(profile?.id)
 
   return (
     <Page
-      title={
-        `Profile ${id}`
+      title={`Profile ${id}`}
+      loading={isLoading}
+      loadingFallback={
+        <ProfilePlaceholder />
       }
-      loading={!profile}
     >
       <Card>
         <ProfileInfo profile={profile!} />
 
         {isLoadingBio
-          ? <Loader />
+          ? <BioPlaceholder />
           : <p className={css.bio}>{bio}</p>
         }
       </Card>
@@ -40,15 +43,5 @@ export const ViewProfile = (props: {
         Go back
       </Link>
     </Page>
-  )
-}
-
-
-const Loader = () => {
-  return (
-    <div className={css.loader}>
-      <FontAwesomeIcon icon='spinner' spin className={css.icon} />
-      Loading bio...
-    </div>
   )
 }
