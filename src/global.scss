@@ -1,0 +1,27 @@
+@import 'open-color';
+
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+:root {
+}
+
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+  font-size: 24px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1;
+
+  color: $oc-gray-7;
+  background: $oc-indigo-0;
+
+  transition: background .2s ease-in-out;
+}
