@@ -19,7 +19,6 @@ export const ViewProfile = (props: {
 }) => {
   const { id } = props
   const { isLoading, profile } = useProfile(id)
-  const { isLoading: isLoadingBio, bio } = useBio(profile?.id)
 
   return (
     <Page
@@ -31,11 +30,7 @@ export const ViewProfile = (props: {
     >
       <Card>
         <ProfileInfo profile={profile!} />
-
-        {isLoadingBio
-          ? <BioPlaceholder />
-          : <p className={css.bio}>{bio}</p>
-        }
+        <Bio profileId={profile?.id} />
       </Card>
 
       <Link to='./..' className={css.link}>
@@ -43,5 +38,21 @@ export const ViewProfile = (props: {
         Go back
       </Link>
     </Page>
+  )
+}
+
+
+const Bio = (props: {
+  profileId?: string
+}) => {
+  const { profileId } = props
+  const { isLoading, bio } = useBio(profileId)
+  return (
+    <div>
+      {isLoading
+        ? <BioPlaceholder />
+        : <p className={css.bio}>{bio}</p>
+      }
+    </div>
   )
 }
