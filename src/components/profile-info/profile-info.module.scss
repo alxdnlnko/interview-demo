@@ -1,0 +1,28 @@
+@import 'open-color';
+
+.wrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.name {
+  color: $oc-gray-7;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.role {
+  font-size: 1rem;
+  color: $oc-gray-6;
+}
+
+.avatar {
+  width: 3rem;
+  border-radius: .5rem;
+}

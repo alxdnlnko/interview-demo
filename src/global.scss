@@ -1,5 +1,9 @@
 @import 'open-color';
 
+:root {
+  font-size: 16px;
+}
+
 html {
   padding: 0;
   margin: 0;
@@ -15,7 +19,7 @@ body {
   margin: 0;
   width: 100%;
 
-  font-size: 24px;
+  font-size: 1rem;
   font-weight: 400;
   font-family: 'Open Sans', sans-serif;
   line-height: 1;
@@ -24,4 +28,9 @@ body {
   background: $oc-indigo-0;
 
   transition: background .2s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }

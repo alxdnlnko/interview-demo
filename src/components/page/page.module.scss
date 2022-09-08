@@ -1,0 +1,20 @@
+@import 'open-color';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  margin: 0;
+  line-height: 1;
+  font-size: 2rem;
+  color: $oc-gray-7;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

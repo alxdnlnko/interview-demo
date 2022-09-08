@@ -1,6 +1,9 @@
 @import 'open-color';
 
 .card {
+  --shadow-offset: 1rem;
+  --shadow-blur: 2rem;
+
   padding: 2rem;
 
   display: flex;
@@ -8,13 +11,32 @@
   gap: 1rem;
 
   border-radius: 1rem;
-  box-shadow: 0 1rem 2rem desaturate($oc-indigo-2, 50%);
+  box-shadow: 0 var(--shadow-offset) var(--shadow-blur) desaturate($oc-indigo-2, 50%);
 
-  background: $oc-gray-1;
+  background: white;
+  color: $oc-gray-7;
+  transition: all .2s ease-in-out;
+
+  &[data-hoverable] {
+    &:hover {
+      --shadow-offset: .5rem;
+      --shadow-blur: 1rem;
+      background: $oc-gray-1;
+      cursor: pointer;
+    }
+  }
 }
 
 .header {
   display: flex;
+
+  color: $oc-gray-6;
   font-weight: bold;
   font-size: .8rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
